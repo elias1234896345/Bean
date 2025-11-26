@@ -1,8 +1,10 @@
-import { Header } from "@react-navigation/elements";
-import { Link } from "expo-router";
-import { useEffect, useState } from "react";
-import { ScrollView, Text, View, Image, StyleSheet, Pressable } from "react-native";
-import {LineChart, BarChart} from "react-native-gifted-charts"
+import { useEffect } from "react";
+import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
+import BeanList from "./mainpage/beanlist";
+import AccountViewMP from "./mainpage/account";
+import GrapMP from "./mainpage/graph";
+import EasyAcces from "./mainpage/easyAcces";
+
 
 export default function MainPage() {
 
@@ -11,182 +13,99 @@ export default function MainPage() {
     //fetch data here later
   }, []);
 
-  // later tke vlaues from json
-  const coffies = [1,2,3,4,5,6,7]
-  const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+  // fake data
+  const beanList = [
+  { id: 'b01', name: 'El Paraiso', roastery: 'La Finca', land: 'Guatemala', kgPrice: 51.96 },
+  { id: 'b02', name: 'Santa Maria', roastery: 'Cafe Norte', land: 'Colombia', kgPrice: 46.00 },
+  { id: 'b03', name: 'Yirgacheffe Select', roastery: 'Addis Beans', land: 'Ethiopia', kgPrice: 58.50 },
+  { id: 'b04', name: 'Nyeri AA', roastery: 'Kenya Hill', land: 'Kenya', kgPrice: 55.25 },
+  { id: 'b05', name: 'Santos Dulce', roastery: 'Rio Roast', land: 'Brazil', kgPrice: 40.00 },
+  { id: 'b06', name: 'Tarrazu Gold', roastery: 'Costa Roast', land: 'Costa Rica', kgPrice: 48.30 },
+  { id: 'b07', name: 'Mandheling Dark', roastery: 'Sumatra Roast', land: 'Indonesia', kgPrice: 43.10 },
+  { id: 'b08', name: 'Copan Peak', roastery: 'Hondura Blend', land: 'Honduras', kgPrice: 45.75 },
+  { id: 'b09', name: 'Andes Single', roastery: 'Andean Roast', land: 'Peru', kgPrice: 42.00 },
+  { id: 'b10', name: 'Kigali Bloom', roastery: 'Rwanda Rise', land: 'Rwanda', kgPrice: 57.00 },
+];
 
-  const coffiesDays = coffies.map((v,i) => ({
-    value: v,
-    label: days[i % days.length],
-  })
-  )
-
+  
   return (
+// makes it so that we can haevthe add button to teh right bottom coner
+  <View style={{ flex: 1 }}>  
+
    <ScrollView 
    style={{ flex: 1 }}
-   contentContainerStyle = {mainpageStyle.mainPageContainer}>
+   contentContainerStyle = {mainpageStyle.mainPage}>
 
-    {/* Account display with beans and chekins */}
-    <View style={mainpageStyle.account}>
-      {/* Chekins*/}
-      <View style={accountStyle.accountView}>
-        <Text style ={ accountStyle.accountHeaderText}>
-          Chekins
-        </Text>
-        <Text style ={ accountStyle.accountSideText}>
-          0
-        </Text>
-
-      </View>
-
-      {/*Pivture*/}
-      <View style={accountStyle.accountView}>
-        {/* <Text style={styles.accountHeaderText}>
-          Profile
-        </Text> */}
-                <Image
-                  source={require('../assets/images/profileCoffie.png')}
-                  style={accountStyle.accountViewPicture}
-
-                />
-
-      </View>
-
-      {/* Beans*/}
-      <View style={accountStyle.accountView}>
-                <Text style = {accountStyle.accountHeaderText}>
-                  Beans
-                </Text>
-                <Text style = {accountStyle.accountSideText}>
-                  0
-                </Text>
-
-      </View>
-
-
-
-    </View>
+    {/* show the account view at the top */}
+    <AccountViewMP></AccountViewMP>
 
     {/*
      Graph siaply for how many coffies you have driken each day during a week
      and also the path ot go to a differnt info page
     */}
-    <View style={mainpageStyle.graph}>
-      <View style= {graphStyle.graphDisaplyArea}>
-          <LineChart 
-          data={coffiesDays}
-        
-      />
-      </View>
-    </View>
-
-    <View style={mainpageStyle.latest}>
-    </View>
-    <View style={mainpageStyle.beanlist}>
-    </View>
+    <GrapMP></GrapMP>
 
   
-    
+
+    {/* Easy to accces functions usually done */}
+      <EasyAcces></EasyAcces>
+
+
+    {/* bean list section */}
+      <BeanList
+        beanList={beanList}
+        onAdd={(id) => {
+          console.log("add bean id:", id);
+        }}
+      />
+ 
    </ScrollView>
+
+      {/* Floating action button — stays on screen while you scroll */}
+      <Pressable
+        onPress={() => { console.log("FAB pressed"); }}
+        style={({ pressed }) => [
+          mainpageStyle.fab,
+          pressed && mainpageStyle.fabPressed,
+        ]}
+        accessibilityLabel="Add latest coffee"
+      >
+        <Text style={mainpageStyle.fabText}>+</Text>
+      </Pressable>
+</View>
   );
 }
 
-const accountStyle = StyleSheet.create({
-  
-
-  accountView:{
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center', 
-    flex: 1,
-  },
-
-  accountViewPicture:{
-    flexDirection: 'column',
-    borderRadius: 60,
-    borderColor: 'black',
-    borderWidth: 2,
-    alignItems: 'center',
-    height: 110,
-    width: 110,
-  },
-
-  accountHeaderText:{
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: 'bold',
-    alignItems: 'center',
-
-  },
-
-  accountSideText:{
-    textAlign: 'center',
-    padding: 4,
-    fontSize: 16,
-    fontWeight: 'bold',
-
-  },
-})
-
-const graphStyle = StyleSheet.create({
-  graphDisaplyArea: {
-    marginTop: 3,
-  }
-})
-
-const quickTabStyle = StyleSheet.create({
-
-
-})
-
-const beanlistDisplayStyle = StyleSheet.create({
-
-
-})
-
 const mainpageStyle = StyleSheet.create({
-  mainPageContainer:{
+  mainPage:{
     flexGrow: 1,
-    justifyContent: 'space-between',
-    padding: 20,
+    justifyContent: 'flex-start',
+    padding: 12,
     margin: 10,
+    gap: 12,
   },
 
-  account:{
-    flex: 0.16,
-    flexDirection: 'row',
-    backgroundColor: ' rgba(214, 216, 225, 0.6)',
-    borderRadius:22,
-  },
-
-  graph:{
-    flex: 0.3,
-    backgroundColor: 'rgba(105, 131, 246, 0.6)',
+  fab: {
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    backgroundColor: "#e0dfe8",
+    padding: 10,
     borderRadius: 22,
+    borderWidth: 2.5,
     alignItems: 'center',
-    
+    justifyContent: 'center',
+    height: 50,
+    width: 50,
+  },
+  
+  fabPressed: {
+    opacity: 0.8
   },
 
-  latest:{
-    flex: 0.2,
-    alignContent:  "center",
-    backgroundColor: 'brown',
-    borderRadius: 22,
-
+  fabText: {
+    fontSize: 24,
+    lineHeight: 24,
   },
-
-  beanlist:{
-    flex: 0.2,
-    alignContent:  "center",
-    backgroundColor: 'orange',
-    borderRadius: 22,
-  },
-
-  checkIn:{
-    flex: 0.2,
-    alignContent:  "center",
-    backgroundColor: 'yellow',
-    borderRadius: 22,
-
-  }
 });
+
