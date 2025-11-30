@@ -7,7 +7,7 @@ export default function EasyAcces(){
     <View style={style.container}>
       <View style={style.alignmentStyle}>
         <Text style={style.mainPageTextStyle}>
-            Lägg till senaste kaffet                  
+            Add previously coffee                
         </Text>
         <Pressable
         style={({pressed}) => [

@@ -5,8 +5,7 @@ export default function RootLayout() {
   initialRouteName="index">
     <Stack.Screen 
      name="index"
-     options={
-      {
+     options={{
         title: "CoffeBrew",
         headerTitleAlign: 'center',
         headerTintColor: 'white',
@@ -16,6 +15,36 @@ export default function RootLayout() {
         headerStyle:{
           backgroundColor: 'brown',
         },
+      }}
+    />
+    <Stack.Screen 
+     name="statsPage"
+     options={{
+        title: "Stats Page",
+        headerTitleAlign: 'center',
+        headerTintColor: 'white',
+        headerTitleStyle:{
+          fontWeight: 'bold',
+        },
+        headerStyle:{
+          backgroundColor: 'brown',
+        },
+      }}
+    />
+    <Stack.Screen 
+     name="addNewBeanPage"
+     options={{
+        title: "Add New Bean",
+        headerTitleAlign: 'center',
+        headerTintColor: 'white',
+        headerTitleStyle:{
+          fontWeight: 'bold',
+        },
+        headerStyle:{
+          backgroundColor: 'brown',
+        },
+
+
       }}
     />
   </Stack>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { router } from 'expo-router';
 import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
 import BeanList from "./mainpage/beanlist";
 import AccountViewMP from "./mainpage/account";
@@ -43,13 +44,13 @@ export default function MainPage() {
      Graph siaply for how many coffies you have driken each day during a week
      and also the path ot go to a differnt info page
     */}
-    <GrapMP></GrapMP>
-
+    <Pressable onPress={() => router.push('/statsPage')}> 
+     <GrapMP></GrapMP>
+    </Pressable>
   
 
     {/* Easy to accces functions usually done */}
       <EasyAcces></EasyAcces>
-
 
     {/* bean list section */}
       <BeanList
@@ -63,7 +64,7 @@ export default function MainPage() {
 
       {/* Floating action button — stays on screen while you scroll */}
       <Pressable
-        onPress={() => { console.log("FAB pressed"); }}
+        onPress={() => router.push('/addNewBeanPage')}
         style={({ pressed }) => [
           mainpageStyle.fab,
           pressed && mainpageStyle.fabPressed,
