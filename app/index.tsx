@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { router } from 'expo-router';
-import { ScrollView, StyleSheet, View, Text, Pressable } from "react-native";
+import { ScrollView, StyleSheet, View, Text, Pressable, TouchableOpacity } from "react-native";
 import BeanList from "./mainpage/beanlist";
 import AccountViewMP from "./mainpage/account";
 import GrapMP from "./mainpage/graph";
@@ -50,7 +50,7 @@ export default function MainPage() {
   
 
     {/* Easy to accces functions usually done */}
-      <EasyAcces></EasyAcces>
+    <EasyAcces></EasyAcces>
 
     {/* bean list section */}
       <BeanList
@@ -59,21 +59,17 @@ export default function MainPage() {
           console.log("add bean id:", id);
         }}
       />
- 
    </ScrollView>
 
       {/* Floating action button — stays on screen while you scroll */}
-      <Pressable
+      <TouchableOpacity
         onPress={() => router.push('/addNewBeanPage')}
-        style={({ pressed }) => [
-          mainpageStyle.fab,
-          pressed && mainpageStyle.fabPressed,
-        ]}
+        style={ mainpageStyle.fab}
         accessibilityLabel="Add latest coffee"
       >
         <Text style={mainpageStyle.fabText}>+</Text>
-      </Pressable>
-</View>
+      </TouchableOpacity>
+  </View>
   );
 }
 
@@ -88,8 +84,8 @@ const mainpageStyle = StyleSheet.create({
 
   fab: {
     position: 'absolute',
-    bottom: 16,
-    right: 16,
+    bottom: 32,
+    right: 18,
     backgroundColor: "#e0dfe8",
     padding: 10,
     borderRadius: 22,
@@ -98,10 +94,6 @@ const mainpageStyle = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     width: 50,
-  },
-  
-  fabPressed: {
-    opacity: 0.8
   },
 
   fabText: {

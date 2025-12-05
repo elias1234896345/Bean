@@ -1,6 +1,4 @@
-import { router } from "expo-router";
-import { useEffect, useState } from "react";
-import { ScrollView, Text, View, Image, StyleSheet, Pressable, Dimensions, FlatList } from "react-native";
+import { ScrollView, Text, View,StyleSheet, } from "react-native";
 import {LineChart, BarChart} from "react-native-gifted-charts"
 import {screenWidth, mainPageBorderRadius} from '../constants/defultValus';
 
@@ -181,18 +179,15 @@ const graphStyle = StyleSheet.create({
 })
 
 
+
 const buttenStyles = StyleSheet.create({
  btn: {
     backgroundColor: "#e0dfe8",
-    padding: 10,
     borderRadius: 22,
     borderWidth: 2.5,
-
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-
-  btnPressed: {
-    opacity: 0.8
-
-  }
-
 })

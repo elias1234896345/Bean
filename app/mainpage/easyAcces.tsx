@@ -10,10 +10,8 @@ export default function EasyAcces(){
             Add previously coffee                
         </Text>
         <Pressable
-        style={({pressed}) => [
-          buttenStyles.btn,
-          pressed && buttenStyles.btnPressed,
-        ]}
+        onPress={()=> null}
+        style={buttenStyles.btn}
         >
           <Text>
             +
@@ -41,7 +39,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     flexDirection: 'row',
-    flex: 0.5,
+    flex: 0.7,
     
   },
   mainPageTextStyle:{
@@ -58,19 +56,14 @@ const style = StyleSheet.create({
   }
 })
 
-
 const buttenStyles = StyleSheet.create({
  btn: {
     backgroundColor: "#e0dfe8",
-    padding: 10,
     borderRadius: 22,
     borderWidth: 2.5,
-
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-
-  btnPressed: {
-    opacity: 0.8
-
-  }
-
 })

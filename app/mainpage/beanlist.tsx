@@ -1,5 +1,4 @@
-import { Text, View, StyleSheet, Pressable, FlatList } from "react-native";
-import '../../constants/button';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 
 type Bean = {
   id: string;
@@ -35,12 +34,12 @@ export default function BeanList({beanList, onAdd}: Props ){
                 </Text>
               </View>
 
-              <Pressable 
+              <TouchableOpacity 
                 onPress={()=> onAdd?.(item.id)}
-                style={({pressed}) => [ styles.btn, pressed && styles.btnPressed ]}
+                style={styles.btn}
               >
                 <Text>+</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           )}
         />
@@ -67,19 +66,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginRight: 10,
   },
-  btn: {
+ btn: {
     backgroundColor: "#e0dfe8",
-    padding: 10,
     borderRadius: 22,
     borderWidth: 2.5,
-
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-
-  btnPressed: {
-    opacity: 0.8
-
-  }
-
 })
 
 const style = StyleSheet.create({
@@ -102,7 +97,6 @@ mainPageTextStyle:{
     alignItems: 'center',
 
   },
-
 
   alignmentStyle:{
     width: '100%',

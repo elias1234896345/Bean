@@ -1,9 +1,9 @@
-import { ScrollView, StyleSheet, View, Text, Pressable, Image, TextInput, TouchableOpacity } from "react-native";
-import {FontAwesome,AntDesign, Ionicons} from '@expo/vector-icons'
-import {mainPageBorderRadius,screenWidth} from '../constants/defultValus'
-import { useState } from "react";
+import { ScrollView, StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import {FontAwesome, Ionicons} from '@expo/vector-icons'
+import React, { useState } from "react";
 import * as ImagePicker from 'expo-image-picker';
 import Slider from '@react-native-community/slider';
+import Divider from '../constants/divider';
 
 const Bean = { name: "Darsy Bloom", src: require("../assets/images/bag.png") };
 const Serveringsstilar = ["Espresso", "Americano", "Cappuccino", "Latte", "Cold Brew", "Pour Over"];
@@ -46,32 +46,24 @@ export default function AddNewBeanPage(){
 
     }
     return (
-    <View style={{justifyContent: 'center', flex:1 }}>
-            {/* page view */}
+        // {/* page view */}
         <View style={addBean.pageStyle}
-        >
+         >
+            <View>
+                <View style={{justifyContent:'center', alignItems: 'center', paddingBottom: 12}}>
+                      <Text style={{fontWeight: 'bold' , fontSize: 18}}>
+                     {Bean.name}
+                 </Text>
+                </View>
+             {/* Name of coffie */}
+             <View style={{flexDirection: 'row', justifyContent:'space-around'}}>
+                 <Image
+                     source={Bean.src}
+                     style={{ width: 100, height: 100 }}
+                 />
 
-            {/* Name of coffie */}
-            <View style={{flexDirection: 'row'}}>
-                <Image
-                    source={Bean.src}
-                    style={{ width: 200, height: 200 }}
-                />
-                <Text>
-                    {Bean.name}
-                </Text>
-            </View>
-
-            {/* notes and add picture */}
-            <View style={{flexDirection: 'row'}}>
-                <TextInput
-                style={{width: 300}}
-                placeholder="Hur var kaffet?"
-                >
-
-                </TextInput>
-
-                <TouchableOpacity
+               {/*Add picture */}
+                 <TouchableOpacity
                     style={camera.imagePicker }
                     onPress={pickImage}
                 >
@@ -82,40 +74,54 @@ export default function AddNewBeanPage(){
                         ):
                        ( 
                        <View>
-                         <Ionicons style={{justifyContent: 'center', alignItems: 'center'}} name="image-outline" size={40} color={'#393E46'} />
+                         <Ionicons style={{alignSelf:'center'}} name="image-outline" size={40} color={'#393E46'} />
                          <Text style={camera.palceholderText}>  Lägg till foto  </Text>
                         </View>
                     )}
-                </TouchableOpacity>
-                
-                
+                    </TouchableOpacity>
+             </View>
+
+             {/* notes  */}
+             <View style={{paddingTop: 8}}>
+                <TextInput
+                style={{width: '100%', fontSize: 16, }}
+                placeholder="Hur var kaffet?"
+                multiline={true}
+                numberOfLines={5} 
+                >
+                </TextInput>
+                </View>
             </View>
 
+            {/* divider */}
+            <Divider />
+                         
             {/* GRADE (slider)*/}
-            <View style={{justifyContent: 'space-between',flexDirection:'row'}}>
-                <Text style= {{fontWeight: 'bold', fontSize: 20}}>
-                        BETYG: 
-                 </Text>
-                <Text style= {{fontWeight: 'bold', fontSize: 20}}>
-                         {SliderState.toString().slice(0,1)}
-                 </Text>
-            </View>
-            <View style={{alignItems:'center'}}>
-            <Slider
-              style={{width: 200, height: 40}}
-              minimumValue={0}
-              maximumValue={10}
-              value={SliderState}
-              onValueChange={(value) => setSliderState(value)}
-              minimumTrackTintColor="#FFFFFF"
-              maximumTrackTintColor="#000000"
-              
-            />
+            <View>
+                <View style={{justifyContent: 'center',flexDirection:'row'}}>
+                    <Text style= {{fontWeight: 'bold', fontSize: 20}}>
+                            BETYG:  {SliderState.toString().slice(0,1)}
+                     </Text>
+                </View>
+                <View style={{alignItems:'center'}}>
+                <Slider
+                  style={{width: '100%', height: 40}}
+                  minimumValue={0}
+                  maximumValue={10}
+                  value={SliderState}
+                  onValueChange={(value) => setSliderState(value)}
+                  thumbTintColor="#5e0303ff"
+                  minimumTrackTintColor="#5e0303ff"
+                  maximumTrackTintColor="#000000ff"
+                />
+                </View>
             </View>
 
+            {/* divider */}
+            <Divider />
             {/* Serveringsstil */}
-            <View style={{height: 100}}>
-            <Text style={{ fontWeight: 'bold', fontSize: 20}}>Serveringsstil</Text>
+            <View style={{height: 100, alignItems:'center'}}>
+             <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 2  }}>Serveringsstil</Text>
             
               <ScrollView horizontal={true} >
                 {Serveringsstilar.map((stil, index) => (
@@ -136,10 +142,16 @@ export default function AddNewBeanPage(){
                         </Text>
                     </TouchableOpacity>
                 ))}
-            </ScrollView>
-            </View>         
+             </ScrollView>
+            </View>     
+
+            {/* devider */}
+            <Divider />
+
             {/* Place*/}
-            <View style={{height:60}}>
+            <View style={{alignItems: 'center'}}>
+            <Text style={{ fontWeight: 'bold', fontSize: 20, padding: 2  }}>Plats</Text>
+            <View style={{height:70}}>
                 <ScrollView horizontal={true}>
                     {Places.map((place, index) => (
                         <TouchableOpacity
@@ -161,30 +173,32 @@ export default function AddNewBeanPage(){
 
                 </ScrollView>
             </View>
-            {/* CHECK-IN BUTTON*/}
-            <View style={{ width:'100%',  backgroundColor:'green', height: 60, justifyContent: 'center'}}>
-                <TouchableOpacity
-                style={{justifyContent:'center', alignItems:'center'}}
-                onPress={() => [null]}
-                >
-                    <Text style={{borderWidth: 2, borderRadius: 12, padding: 14, color: 'white'}}> CHECKIN-IN</Text>
+         </View>
 
+          {/* devider */}
+          <Divider />
 
-                </TouchableOpacity>
-                </View>
-        
+           {/* CHECK-IN BUTTON*/}
+           <View style={{paddingTop: 24}}>
+             <View style={{borderWidth: 2, borderRadius: 12,  backgroundColor:'green', height: 60, justifyContent: 'center'}}>
+                 <TouchableOpacity
+                 style={{justifyContent:'center', alignItems:'center'}}
+                 onPress={() => [null]}
+                 >
+                     <Text style={{ padding: 14, color: 'white'}}> CHECKIN-IN</Text>
+                 </TouchableOpacity>
+             </View>
+            </View>
         </View>
-
-    </View>
     );
 }
 
 const addBean = StyleSheet.create({
-
     pageStyle:{
-        justifyContent: 'center',
-        flex:1 
-
+    justifyContent: 'flex-start',
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    gap: 8,
     },
 
     gradeStyle:{
@@ -231,8 +245,6 @@ const camera = StyleSheet.create({
     imagePicker:{
         width:100,
         height:100,
-        backgroundColor: "",
-        borderColor:"",
         borderRadius: 8, 
         borderWidth:3, 
         justifyContent:'center',
@@ -254,8 +266,9 @@ const camera = StyleSheet.create({
     },
 
     palceholderText:{
-        marginTop: 8,
-
+        marginTop: 4,
+        fontSize: 12.5,
+        // fontWeight: 'bold'
     },
 
 })
