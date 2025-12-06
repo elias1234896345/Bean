@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
+import { COFFEE_COLORS } from "@/constants/defultValus";
 
 export default function AccountViewMP() {
   return (
@@ -32,7 +33,7 @@ const style = StyleSheet.create({
   container: {
     height: 150,
     flexDirection: "row",
-    backgroundColor: "rgba(105, 131, 246, 0.6)",
+    backgroundColor: COFFEE_COLORS.honeyBrown,
     borderRadius: 22,
     overflow: "hidden",
   },

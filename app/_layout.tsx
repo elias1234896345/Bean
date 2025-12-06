@@ -13,7 +13,7 @@ export default function RootLayout() {
           fontWeight: 'bold',
         },
         headerStyle:{
-          backgroundColor: 'brown',
+          backgroundColor: '#A84A3A',
         },
       }}
     />

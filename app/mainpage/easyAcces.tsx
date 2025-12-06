@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Pressable, } from "react-native";
-import { mainPageBorderRadius } from "@/constants/defultValus";
+import { COFFEE_COLORS, mainPageBorderRadius } from "@/constants/defultValus";
 
 
 export default function EasyAcces(){
@@ -30,7 +30,7 @@ const style = StyleSheet.create({
   container:{
     height: 80,
     alignContent:  "center",
-    backgroundColor: 'green',
+    backgroundColor: COFFEE_COLORS.nr3,
     borderRadius: mainPageBorderRadius,
     overflow: 'hidden',     
   },

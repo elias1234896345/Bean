@@ -1,3 +1,4 @@
+import { COFFEE_COLORS } from "@/constants/defultValus";
 import { Text, View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 
 type Bean = {
@@ -83,7 +84,7 @@ beanlist:{
     minHeight: 200,
     maxHeight: 420,
     alignContent:  "center",
-    backgroundColor: '#e0808fff',
+    backgroundColor: COFFEE_COLORS.nr4,
     borderRadius: 22,
     overflow: 'hidden',
     justifyContent: 'flex-start',

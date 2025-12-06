@@ -1,9 +1,7 @@
-import { Header } from "@react-navigation/elements";
-import { Link } from "expo-router";
-import { useEffect, useState } from "react";
-import { ScrollView, Text, View, Image, StyleSheet, Pressable, Dimensions, FlatList } from "react-native";
-import {LineChart, BarChart} from "react-native-gifted-charts"
-import {screenWidth, mainPageBorderRadius} from '../../constants/defultValus';
+import {  Text, View, StyleSheet } from "react-native";
+import {LineChart} from "react-native-gifted-charts"
+import {screenWidth, mainPageBorderRadius, COFFEE_COLORS} from '../../constants/defultValus';
+
 
   // later tke vlaues from json
 const coffies = [1,2,3,4,5,6,7]
@@ -18,6 +16,7 @@ const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
 export default function GraphMP(){
     return(
           <View style={graphStyle.container}>
+            <Text style= {graphStyle.headerGraphText}> Coffies this week </Text>
               <View style= {graphStyle.graphDisaplyArea}>
                   <LineChart 
                   data={coffiesDays}
@@ -34,15 +33,20 @@ export default function GraphMP(){
 
 const graphStyle = StyleSheet.create({
 container:{
-    height: 250,
-    backgroundColor: 'rgba(105, 131, 246, 0.6)',
+    height: 286,
+    backgroundColor: COFFEE_COLORS.nr2,
     borderRadius: mainPageBorderRadius,
     alignItems: 'center',
     overflow: 'hidden',   
   },
   graphDisaplyArea: {
     width: '100%',
-    height: '100%',
     justifyContent: 'center',
-  }
+  },
+
+  headerGraphText:{
+    paddingVertical: 8,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 })
