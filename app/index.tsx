@@ -46,7 +46,7 @@ export default function MainPage() {
 
         {/* bean list section */}
         <BeanList
-          beanList={beanList}
+          beanList={beanList.slice(0,2)}
           onAdd={(id) => {
             console.log("add bean id:", id);
           }}
