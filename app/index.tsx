@@ -52,7 +52,6 @@ export default function MainPage() {
           }}
         />
       </ScrollView>
-
       <TouchableOpacity
         onPress={() => router.push('/addNewBeanPage')}
         style={ mainpageStyle.addCoffe}

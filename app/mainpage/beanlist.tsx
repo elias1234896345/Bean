@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, FlatList, TouchableOpacity } from "react-native
 import { Bean as BeanIcon } from 'lucide-react-native';
 import {FontAwesome6} from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import BeanListPage from "../beanListpage";
+import { router } from "expo-router";
 
 type Bean = {
   id: string;
@@ -65,7 +67,7 @@ export default function BeanList({beanList, onAdd}: Props ){
       </View>
       <View style={{alignItems: 'center', height:40}}>    
         <TouchableOpacity
-           onPress={()=> '/beanListPage'}
+           onPress={()=> router.push('/beanListpage')}
           style={{
              borderRadius: 12,
              borderWidth: 2,
