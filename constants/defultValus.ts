@@ -10,6 +10,20 @@ export const COLORS = {
   buttonBg: "#0a8a2a",
 };
 
+
+export const beanList = [
+    { id: 'b01', name: 'El Paraiso', roastery: 'La Finca', land: 'Guatemala', kgPrice: 51.96 },
+    { id: 'b02', name: 'Santa Maria', roastery: 'Cafe Norte', land: 'Colombia', kgPrice: 46.00 },
+    { id: 'b03', name: 'Yirgacheffe Select', roastery: 'Addis Beans', land: 'Ethiopia', kgPrice: 58.50 },
+    { id: 'b04', name: 'Nyeri AA', roastery: 'Kenya Hill', land: 'Kenya', kgPrice: 55.25 },
+    { id: 'b05', name: 'Santos Dulce', roastery: 'Rio Roast', land: 'Brazil', kgPrice: 40.00 },
+    { id: 'b06', name: 'Tarrazu Gold', roastery: 'Costa Roast', land: 'Costa Rica', kgPrice: 48.30 },
+    { id: 'b07', name: 'Mandheling Dark', roastery: 'Sumatra Roast', land: 'Indonesia', kgPrice: 43.10 },
+    { id: 'b08', name: 'Copan Peak', roastery: 'Hondura Blend', land: 'Honduras', kgPrice: 45.75 },
+    { id: 'b09', name: 'Andes Single', roastery: 'Andean Roast', land: 'Peru', kgPrice: 42.00 },
+    { id: 'b10', name: 'Kigali Bloom', roastery: 'Rwanda Rise', land: 'Rwanda', kgPrice: 57.00 },
+  ];
+
 // coffee color palette used across the app
 export const COFFEE_COLORS = {
   espresso:      "#2B1700", 
