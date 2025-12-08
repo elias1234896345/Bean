@@ -56,11 +56,11 @@ export const COFFEE_COLORS = {
   hazelnut:      "#BF9466", 
   mapleSyrup:    "#D89B5E", 
   sunriseLatte:  "#F2C89B", 
-  red: '#402723ff',
+  red:           '#402723ff',
   warmLatteRose: "F5D3CC",
-  nr2: '#e0aa74ff',
-  nr3:  '#dea873ff',
-  nr4: '#e5a56cff' ,
+  nr2:           '#e0aa74ff',
+  nr3:           '#dea873ff',
+  nr4:           '#e5a56cff' ,
 };
 
 

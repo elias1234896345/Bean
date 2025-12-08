@@ -1,8 +1,9 @@
 import { router } from 'expo-router';
 import { ScrollView, StyleSheet, View, Text, Pressable, TouchableOpacity, TextInput, Image } from "react-native";
-import { beanList,COFFEE_COLORS } from "../constants/defultValus";
-import {FontAwesome, Ionicons} from '@expo/vector-icons'
-import { TextInputBase } from "react-native";
+import { beanList, COFFEE_COLORS } from "../constants/defultValus";
+import { FontAwesome, MaterialCommunityIcons, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Bean as BeanIcon } from 'lucide-react-native';
+
 
 export default function BeanListPage(){
     return(
@@ -21,34 +22,44 @@ export default function BeanListPage(){
                     style={{justifyContent: 'center', alignItems: 'center', marginRight:18}}
                  />
             </View>
+
           {/* Dispaly coffes */}
           <ScrollView style={{width: '100%'}} contentContainerStyle={{gap: 12}}>
              {beanList.map(bean => (   
                <View 
                 key={bean.id}
-                style={{height:76, width: '100%', borderRadius: 22, borderWidth:3, flexDirection: 'row'}}>
+                style={{height:76, width: '100%', borderRadius: 22, borderWidth:3, flexDirection: 'row'}}
+                >
                     {/* Coffe image */}
-                    <Image
-                    // source={{uri: bean.image || 'https://via.placeholder.com/84'}}
-                    source={{uri:'https://via.placeholder.com/84',}}
-                    style={{ width:84, height:84, borderRadius:12 }}                  >
-                    
-                    </Image>
+                      <Image
+                        source={require("../assets/images/bag.png")}
+                        style={{ width:'24%', height:'90%', borderRadius:12, alignSelf:'center',marginLeft:6 }}
+                      />
                     {/* Name, palce, roastery, land, kgPrice */}
-                    <View style={{ marginLeft:12, justifyContent:'center' }} >
-
-                      <View style={{justifyContent: 'center', flexDirection: 'row' }}>
-                        <Ionicons name='text'></Ionicons><Text> {bean.name} </Text>
-                        <Text> {bean.land} </Text>
+                    <View style={{ marginLeft:22, justifyContent:'space-evenly',flexDirection: 'column', width: '40%' }} >
+                      <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
+                        <MaterialCommunityIcons name="coffee" size={13} />
+                         <Text numberOfLines={1} style={{marginLeft:6}}>{bean.name}</Text>
+                     </View>
+                    
+                      <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
+                        <MaterialCommunityIcons name="factory" size={13} />
+                        <Text numberOfLines={1}  style={{marginLeft:6}}>{bean.roastery}</Text>
                       </View>
-
-                      <View style={{justifyContent: 'center', flexDirection: 'row'}}>
-                        <Text> {bean.roastery} </Text>
-                        <Text> {bean.kgPrice} </Text>
-                      </View>
-
                     </View>
-                  </View>
+
+                    <View style={{  justifyContent:'space-evenly',flexDirection: 'column',width: '35%' }} >
+                      <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
+                          <MaterialIcons name="attach-money" size={13} />
+                        <Text numberOfLines={1}  style={{marginLeft:6}}>{bean.kgPrice}</Text>
+                      </View>
+                      <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
+                        <Ionicons name="location-outline" size={13} />
+                        <Text numberOfLines={1}  style={{marginLeft:6}}>{bean.land}</Text>
+                      </View>
+                    </View>
+
+                </View>
               ))}
           </ScrollView>
 

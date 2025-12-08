@@ -37,7 +37,7 @@ export default function BeanList({beanList, onAdd}: Props ){
               <View style={styles.itemBox}>
                 <View style={{width: '40%', flexDirection: 'row', justifyContent:'center'}}>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{ justifyContent: 'center', alignSelf:'center', alignItems: 'center', textAlign: 'center', alignContent: 'center'}}>
-                        <BeanIcon size={13} /> {item.name}      
+                    <BeanIcon size={13} /> {item.name}      
                   </Text> 
                 </View>
 

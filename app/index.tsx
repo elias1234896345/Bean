@@ -5,6 +5,7 @@ import BeanList from "./mainpage/beanlist";
 import AccountViewMP from "./mainpage/account";
 import GrapMP from "./mainpage/graph";
 import EasyAcces from "./mainpage/easyAcces";
+import AccountPage from "./accountPage";
 import { beanList,COFFEE_COLORS } from "../constants/defultValus";
 
 export default function MainPage() {
@@ -19,8 +20,10 @@ export default function MainPage() {
         contentContainerStyle = {mainpageStyle.mainPage}>
 
         {/* show the account view at the top */}
-        <AccountViewMP />
-
+        <TouchableOpacity onPress={()=> router.push('./accountPage')}>
+            <AccountViewMP />
+        </TouchableOpacity>
+        
         {/* Graph */}
         <Pressable onPress={() => router.push('/statsPage')}> 
          <GrapMP />
