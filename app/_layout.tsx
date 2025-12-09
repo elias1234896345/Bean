@@ -47,5 +47,34 @@ export default function RootLayout() {
 
       }}
     />
+    <Stack.Screen
+    name="beanListpage"
+    options={{
+      title: "Your Bean List",
+      headerTitleAlign: 'center',
+      headerTintColor: 'white',
+      headerTitleStyle:{
+        fontWeight: 'bold',
+      },
+      headerStyle:{
+        backgroundColor: 'brown',
+      },
+    }}
+    />
+    
+    <Stack.Screen
+    name="accountPage"
+    options={{
+      title: "Account",
+      headerTitleAlign: 'center',
+      headerTintColor: 'white',
+      headerTitleStyle:{
+        fontWeight: 'bold',
+      },
+      headerStyle:{
+        backgroundColor: 'brown',
+      },
+    }}
+    />
   </Stack>
 }

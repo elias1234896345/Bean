@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import * as ImagePicker from 'expo-image-picker';
 import Slider from '@react-native-community/slider';
 import Divider from '../constants/divider';
+import { COFFEE_COLORS } from "@/constants/defultValus";
 
 const Bean = { name: "Darsy Bloom", src: require("../assets/images/bag.png") };
 const Serveringsstilar = ["Espresso", "Americano", "Cappuccino", "Latte", "Cold Brew", "Pour Over"];
@@ -195,10 +196,13 @@ export default function AddNewBeanPage(){
 
 const addBean = StyleSheet.create({
     pageStyle:{
-    justifyContent: 'flex-start',
-    paddingHorizontal: 24,
-    paddingVertical: 16,
-    gap: 8,
+     flexGrow: 1,
+            justifyContent: 'flex-start',
+            padding: 8,
+            margin:8,
+            gap: 12,
+            backgroundColor: COFFEE_COLORS.vanillaCream,
+            borderRadius: 18,
     },
 
     gradeStyle:{

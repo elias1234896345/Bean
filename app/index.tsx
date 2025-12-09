@@ -33,6 +33,7 @@ export default function MainPage() {
         <EasyAcces />
 
         {/* bean list section */}
+     
         <BeanList
           beanList={beanList.slice(0,2)}
           onAdd={(id) => {
@@ -55,12 +56,11 @@ const mainpageStyle = StyleSheet.create({
   mainPage:{
     flexGrow: 1,
     justifyContent: 'flex-start',
-    padding: 12,
-    margin: 10,
+    padding: 8,
+    margin:8,
     gap: 12,
     backgroundColor: COFFEE_COLORS.milk,
     borderRadius: 18,
-    paddingBottom: 120,
   },
 
   addCoffe: {

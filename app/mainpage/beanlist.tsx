@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, FlatList, TouchableOpacity } from "react-native
 import { Bean as BeanIcon } from 'lucide-react-native';
 import {FontAwesome6} from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import BeanListPage from "../beanListpage";
 import { router } from "expo-router";
 
 type Bean = {
@@ -33,27 +32,30 @@ export default function BeanList({beanList, onAdd}: Props ){
           style={{ width: "100%" }}                       
           contentContainerStyle={{ paddingVertical: 8 }}  
           renderItem={({item}) => (
+        
             <View style={styles.row}>
+              <TouchableOpacity>
               <View style={styles.itemBox}>
-                <View style={{width: '40%', flexDirection: 'row', justifyContent:'center'}}>
+                <View style={{width: '36%', flexDirection: 'row', justifyContent:'flex-start'}}>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{ justifyContent: 'center', alignSelf:'center', alignItems: 'center', textAlign: 'center', alignContent: 'center'}}>
                     <BeanIcon size={13} /> {item.name}      
                   </Text> 
                 </View>
 
-                <View style={{width: '35%', flexDirection: 'row', justifyContent:'center'}}>
+                <View style={{width: '32%', flexDirection: 'row', justifyContent:'flex-start'}}>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{justifyContent: 'center', alignSelf:'center', alignItems: 'center', textAlign: 'center', alignContent: 'center'}}>
                     <FontAwesome6 name={"map-location-dot"}size={13}/> {item.land}   
                   </Text> 
                 </View>
 
-                <View style={{width: '25%', flexDirection: 'row', justifyContent:'center'}}>
+                <View style={{width: '25%', flexDirection: 'row', justifyContent:'flex-start'}}>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{justifyContent: 'center', alignSelf:'center', alignItems: 'center', textAlign: 'center', alignContent: 'center'}}>
                     <MaterialCommunityIcons name="factory" size={14} />{item.roastery} 
                   </Text> 
                 </View>
-               
               </View>
+              </TouchableOpacity>
+          
 
               <TouchableOpacity 
                 onPress={()=> onAdd?.(item.id)}
@@ -62,6 +64,7 @@ export default function BeanList({beanList, onAdd}: Props ){
                 <Text>+</Text>
               </TouchableOpacity>
             </View>
+          
           )}
         />
       </View>
@@ -86,15 +89,13 @@ export default function BeanList({beanList, onAdd}: Props ){
 
 const styles = StyleSheet.create({
   row: {
-    width: "100%",
+    width: "96%",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
     marginVertical: 8,
     paddingHorizontal: 8,
   },
   itemBox: {
-    flex: 1,
     borderRadius: 60,
     borderWidth: 2,
     borderColor: "black",
@@ -103,7 +104,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     flexDirection: 'row',
     justifyContent: 'center'
-    
   },
  btn: {
     backgroundColor: "#e0dfe8",
