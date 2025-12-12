@@ -1,22 +1,29 @@
 import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { beanList, COFFEE_COLORS } from "../constants/defultValus";
 
 
 export default function BeanListPage(){
-  const[data, setData] = useState([]);
-  const[serch, serchQuery] = useState("");
+  const[search, setsearch] = useState("");
 
-const handleSerch = (query) => {
-  serchQuery(query);
-}
+  // Filter beans based on search query
+  const filteredBeans = beanList.filter(bean => 
+    bean.name.toLowerCase().includes(search.toLowerCase()) ||
+    bean.roastery.toLowerCase().includes(search.toLowerCase()) ||
+    bean.land.toLowerCase().includes(search.toLowerCase())
+    
+  );
+
+  // useEffect(()=> {
+  //   console.log(search);
+  // })
 
     return(
         <View style={{flex:1}}>
          <View style={style.mainPage}>
-          {/* Serchbar */}
+          {/* searchbar */}
             <View style={{borderRadius: 18, borderWidth: 2,flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                 <TextInput
                 clearButtonMode = 'always'
@@ -25,8 +32,8 @@ const handleSerch = (query) => {
                 numberOfLines={1}
                 style={{marginLeft: 18, fontWeight: 'bold', fontSize: 16, flexDirection: 'row', width: '80%'}}
                 placeholder="Coffe name..."
-                value={serchQuery}
-                onChangedText={(query)=> handleSerch(query)}
+                value={search}
+                onChangeText={search => setsearch(search)}
                 />
                 <Ionicons
                     name="search"
@@ -36,10 +43,13 @@ const handleSerch = (query) => {
             </View>
 
           {/* Dispaly coffes */}
-          <FlatList style={{width: '100%'}} contentContainerStyle={{gap: 12}}>
-             {beanList.map(bean => (   
+          <FlatList 
+             style={{width: '100%'}} 
+             contentContainerStyle={{gap: 12}}
+             data={filteredBeans}
+             keyExtractor={(item) => item.id}
+             renderItem={({ item: bean }) => (   
                <View 
-                key={bean.id}
                 style={{height:76, width: '100%', borderRadius: 22, borderWidth:3, flexDirection: 'row'}}
                 >
                     {/* Coffe image */}
@@ -72,8 +82,8 @@ const handleSerch = (query) => {
                     </View>
 
                 </View>
-              ))}
-          </FlatList>
+              )}
+          />
 
           {/* Add new coffe button*/}
          </View>
