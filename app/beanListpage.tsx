@@ -1,20 +1,32 @@
+import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
-import { ScrollView, StyleSheet, View, Text, Pressable, TouchableOpacity, TextInput, Image } from "react-native";
+import { useState } from 'react';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { beanList, COFFEE_COLORS } from "../constants/defultValus";
-import { FontAwesome, MaterialCommunityIcons, Ionicons, MaterialIcons } from '@expo/vector-icons';
-import { Bean as BeanIcon } from 'lucide-react-native';
 
 
 export default function BeanListPage(){
+  const[data, setData] = useState([]);
+  const[serch, serchQuery] = useState("");
+
+const handleSerch = (query) => {
+  serchQuery(query);
+}
+
     return(
         <View style={{flex:1}}>
          <View style={style.mainPage}>
           {/* Serchbar */}
             <View style={{borderRadius: 18, borderWidth: 2,flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                 <TextInput
+                clearButtonMode = 'always'
+                autoCapitalize="none"
+                autoCorrect={false}
                 numberOfLines={1}
                 style={{marginLeft: 18, fontWeight: 'bold', fontSize: 16, flexDirection: 'row', width: '80%'}}
                 placeholder="Coffe name..."
+                value={serchQuery}
+                onChangedText={(query)=> handleSerch(query)}
                 />
                 <Ionicons
                     name="search"
@@ -24,7 +36,7 @@ export default function BeanListPage(){
             </View>
 
           {/* Dispaly coffes */}
-          <ScrollView style={{width: '100%'}} contentContainerStyle={{gap: 12}}>
+          <FlatList style={{width: '100%'}} contentContainerStyle={{gap: 12}}>
              {beanList.map(bean => (   
                <View 
                 key={bean.id}
@@ -61,7 +73,7 @@ export default function BeanListPage(){
 
                 </View>
               ))}
-          </ScrollView>
+          </FlatList>
 
           {/* Add new coffe button*/}
          </View>
