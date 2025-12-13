@@ -10,6 +10,13 @@ export const COLORS = {
   buttonBg: "#0a8a2a",
 };
 
+export type BeanInfo = {
+  id?: string;
+  name?: string;
+  roastery?: string;
+  kgPrice?: number;
+  land?: string;
+};
 
 export const beanList = [
     { id: 'b01', name: 'El Paraiso', roastery: 'La Finca', land: 'Guatemala', kgPrice: 51.96 },

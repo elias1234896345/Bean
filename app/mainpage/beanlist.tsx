@@ -1,24 +1,23 @@
+import type { BeanInfo } from "@/constants/defultValus";
 import { COFFEE_COLORS } from "@/constants/defultValus";
-import { Text, View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
-import { Bean as BeanIcon } from 'lucide-react-native';
-import {FontAwesome6} from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome6, MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from "expo-router";
-
-type Bean = {
-  id: string;
-  name: string;
-  roastery: string;
-  land: string;
-  kgPrice: number;
-};
+import { Bean as BeanIcon } from 'lucide-react-native';
+import React, { useState } from "react";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import BeanInfoModal from "./beanInfoModal";
 
 type Props = {
-    beanList: Bean[];
+    beanList: BeanInfo[];
     onAdd?: (id: string) => void;
 }
 
+type Bean = BeanInfo;
+
 export default function BeanList({beanList, onAdd}: Props ){
+    const [selectedBean, setSelectedBean] = useState<Bean | null>(null);
+    const [modalVisible, setModalVisible] = useState(false);
+
     return(
      <View style={style.beanlist}>
        <Text style={style.mainPageTextStyle}> BeanList </Text>
@@ -26,7 +25,7 @@ export default function BeanList({beanList, onAdd}: Props ){
       <View style={style.alignmentStyle}>
          <FlatList
           data={beanList}
-          keyExtractor={(item)=> item.id}
+          keyExtractor={(item, index) => item.id ?? index.toString()}
           nestedScrollEnabled={true}
           showsVerticalScrollIndicator={false}
           style={{ width: "100%" }}                       
@@ -34,7 +33,13 @@ export default function BeanList({beanList, onAdd}: Props ){
           renderItem={({item}) => (
         
             <View style={styles.row}>
-              <TouchableOpacity>
+              <TouchableOpacity
+                 onPress={() => {
+                   console.log('pressed, setting selectedBean:', item);
+                   setSelectedBean(item); 
+                   setModalVisible(true); 
+                 }}
+              >
               <View style={styles.itemBox}>
                 <View style={{width: '36%', flexDirection: 'row', justifyContent:'flex-start'}}>
                   <Text numberOfLines={1} ellipsizeMode="tail" style={{ justifyContent: 'center', alignSelf:'center', alignItems: 'center', textAlign: 'center', alignContent: 'center'}}>
@@ -55,10 +60,9 @@ export default function BeanList({beanList, onAdd}: Props ){
                 </View>
               </View>
               </TouchableOpacity>
-          
 
               <TouchableOpacity 
-                onPress={()=> onAdd?.(item.id)}
+                onPress={() => item.id && onAdd?.(item.id)}
                 style={styles.btn}
               >
                 <Text>+</Text>
@@ -66,6 +70,13 @@ export default function BeanList({beanList, onAdd}: Props ){
             </View>
           
           )}
+        />
+        
+        {/* place modal once, controlled by state */}
+        <BeanInfoModal
+          visiable={modalVisible}
+          bean={selectedBean}
+          onClose={() => { setModalVisible(false); setSelectedBean(null); }}
         />
       </View>
       <View style={{alignItems: 'center', height:40}}>    
