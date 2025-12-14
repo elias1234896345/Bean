@@ -1,32 +1,38 @@
-import { ScrollView, StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from "react-native";
-import {FontAwesome, Ionicons} from '@expo/vector-icons'
-import React, { useState } from "react";
-import * as ImagePicker from 'expo-image-picker';
+import { beanList, COFFEE_COLORS } from "@/constants/defultValus";
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
+import * as ImagePicker from 'expo-image-picker';
+import { useLocalSearchParams } from 'expo-router';
+import React, { useState } from "react";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Divider from '../constants/divider';
-import { COFFEE_COLORS } from "@/constants/defultValus";
 
-const Bean = { name: "Darsy Bloom", src: require("../assets/images/bag.png") };
+const Bean = { src: require("../assets/images/bag.png") };
 const Serveringsstilar = ["Espresso", "Americano", "Cappuccino", "Latte", "Cold Brew", "Pour Over"];
 const Places = ["Hemma", "Café"];
 
-
 export default function AddNewBeanPage(){
+    // Get the id from route params
+    const { id} = useLocalSearchParams<{ id: string }>();
+    
+    // Find the bean from beanList
+    const bean = beanList.find(b => b.id === id);
 
     const [image, setImage] = useState<string | null>(null);
     const [SliderState, setSliderState] = useState<number>(0);
     const [selectedServing, setSelectedServing] = useState<string | null>(null);
     const [selectedPlaces, setselectedPlaces] = useState<string | null>(null);
 
+    // Handle case where bean is not found
+    if (!bean) {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text>Bean not found</Text>
+            </View>
+        );
+    }
 
    const pickImage = async () => {
-    // try{
-    //     if(Platform.OS !== 'web'){
-    //         if(status?.status !== 'granted'){
-    //             const permissonRespose = await requestPermission();
-    //             console.log({permissonRespose})
-    //         }
-    //     }
         let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes:[ 'livePhotos'],
         allowsEditing: true,
@@ -39,12 +45,6 @@ export default function AddNewBeanPage(){
     }
 
 
-    // } catch(error){
-    //     console.log(error);
-    // }
-    
-    // handle the slider value
-
     }
     return (
         // {/* page view */}
@@ -53,7 +53,7 @@ export default function AddNewBeanPage(){
             <View>
                 <View style={{justifyContent:'center', alignItems: 'center', paddingBottom: 12}}>
                       <Text style={{fontWeight: 'bold' , fontSize: 18}}>
-                     {Bean.name}
+                     {bean.name}
                  </Text>
                 </View>
              {/* Name of coffie */}

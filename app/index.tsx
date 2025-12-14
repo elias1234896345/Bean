@@ -1,12 +1,11 @@
-import { useEffect } from "react";
 import { router } from 'expo-router';
-import { ScrollView, StyleSheet, View, Text, Pressable, TouchableOpacity } from "react-native";
-import BeanList from "./mainpage/beanlist";
+import { useEffect } from "react";
+import { Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { beanList, COFFEE_COLORS } from "../constants/defultValus";
 import AccountViewMP from "./mainpage/account";
-import GrapMP from "./mainpage/graph";
+import BeanList from "./mainpage/beanlist";
 import EasyAcces from "./mainpage/easyAcces";
-import AccountPage from "./accountPage";
-import { beanList,COFFEE_COLORS } from "../constants/defultValus";
+import GrapMP from "./mainpage/graph";
 
 export default function MainPage() {
   useEffect(() =>{
@@ -42,7 +41,7 @@ export default function MainPage() {
         />
       </ScrollView>
       <TouchableOpacity
-        onPress={() => router.push('/addNewBeanPage')}
+        onPress={() => router.push('/findBeanPage')}
         style={ mainpageStyle.addCoffe}
         accessibilityLabel="Add latest coffee"
       >
