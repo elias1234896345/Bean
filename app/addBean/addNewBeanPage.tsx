@@ -5,7 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { useLocalSearchParams } from 'expo-router';
 import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import Divider from '../constants/divider';
+import Divider from '../../constants/divider';
 
 const Bean = { src: require("../assets/images/bag.png") };
 const Serveringsstilar = ["Espresso", "Americano", "Cappuccino", "Latte", "Cold Brew", "Pour Over"];
@@ -186,7 +186,7 @@ export default function AddNewBeanPage(){
                  style={{justifyContent:'center', alignItems:'center'}}
                  onPress={() => [null]}
                  >
-                     <Text style={{ padding: 14, color: 'white'}}> CHECKIN-IN</Text>
+                     <Text style={{ padding: 14, color: 'white'}}> CHECK-IN</Text>
                  </TouchableOpacity>
              </View>
             </View>

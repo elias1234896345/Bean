@@ -2,10 +2,10 @@ import { router } from 'expo-router';
 import { useEffect } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { beanList, COFFEE_COLORS } from "../constants/defultValus";
-import AccountViewMP from "./mainpage/account";
-import BeanList from "./mainpage/beanlist";
-import EasyAcces from "./mainpage/easyAcces";
-import GrapMP from "./mainpage/graph";
+import AccountViewMP from "./account/account";
+import BeanList from "./beanList/beanlist";
+import EasyAcces from "./easyAcces/easyAcces";
+import GrapMP from "./graphs/graph";
 
 export default function MainPage() {
   useEffect(() =>{
@@ -24,7 +24,7 @@ export default function MainPage() {
         </TouchableOpacity>
         
         {/* Graph */}
-        <Pressable onPress={() => router.push('/statsPage')}> 
+        <Pressable onPress={() => router.push('../statsPage')}> 
          <GrapMP />
         </Pressable>
 
@@ -41,7 +41,7 @@ export default function MainPage() {
         />
       </ScrollView>
       <TouchableOpacity
-        onPress={() => router.push('/findBeanPage')}
+        onPress={() => router.push('../findBeanPage')}
         style={ mainpageStyle.addCoffe}
         accessibilityLabel="Add latest coffee"
       >

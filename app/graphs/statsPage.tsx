@@ -1,6 +1,6 @@
-import { ScrollView, Text, View,StyleSheet, } from "react-native";
-import {LineChart, BarChart} from "react-native-gifted-charts"
-import {screenWidth, mainPageBorderRadius} from '../constants/defultValus';
+import { ScrollView, StyleSheet, Text, View, } from "react-native";
+import { BarChart, LineChart } from "react-native-gifted-charts";
+import { mainPageBorderRadius, screenWidth } from '../../constants/defultValus';
 
   // later tke vlaues from json
 const coffies = [2,3,4,5,6,7]
