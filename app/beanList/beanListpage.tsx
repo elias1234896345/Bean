@@ -16,10 +16,6 @@ export default function BeanListPage(){
     
   );
 
-  // useEffect(()=> {
-  //   console.log(search);
-  // })
-
     return(
         <View style={{flex:1, backgroundColor: '#faf7f2'}}>
          <View style={style.mainPage}>
@@ -27,8 +23,8 @@ export default function BeanListPage(){
             <View style={{
               borderRadius: 18, 
               borderWidth: 1.5, 
-              borderColor: '#c19a6b', // Caramel border
-              backgroundColor: '#ecdfd0', // Card background
+              borderColor: '#c19a6b', 
+              backgroundColor: '#ecdfd0', 
               flexDirection: 'row', 
               justifyContent: 'space-between', 
               alignItems: 'center',
@@ -49,17 +45,17 @@ export default function BeanListPage(){
                   fontSize: 16, 
                   flexDirection: 'row', 
                   width: '80%',
-                  color: '#6f4e37', // Coffee brown text
+                  color: '#6f4e37', 
                 }}
                 placeholder="Coffee name..."
-                placeholderTextColor="#8b7355" // Light brown
+                placeholderTextColor="#8b7355" 
                 value={search}
                 onChangeText={search => setsearch(search)}
                 />
                 <Ionicons
                     name="search"
                     size={18}
-                    color="#6f4e37" // Coffee brown icon
+                    color="#6f4e37"  icon
                     style={{justifyContent: 'center', alignItems: 'center', marginRight:18}}
                  />
             </View>
@@ -77,8 +73,8 @@ export default function BeanListPage(){
                   width: '100%', 
                   borderRadius: 22, 
                   borderWidth: 1.5,
-                  borderColor: '#c19a6b', // Caramel border
-                  backgroundColor: '#ecdfd0', // Card background
+                  borderColor: '#c19a6b', 
+                  backgroundColor: '#ecdfd0', 
                   flexDirection: 'row',
                   shadowColor: '#6f4e37',
                   shadowOffset: { width: 0, height: 2 },
@@ -97,7 +93,7 @@ export default function BeanListPage(){
                           alignSelf:'center',
                           marginLeft:6,
                           borderWidth: 1,
-                          borderColor: '#c19a6b', // Caramel border
+                          borderColor: '#c19a6b', 
                         }}
                       />
                     {/* Name, place, roastery, land, kgPrice */}
@@ -149,7 +145,7 @@ const style = StyleSheet.create({
       padding: 12,
       margin: 10,
       gap: 12,
-      backgroundColor: '#faf7f2', // Light cream background
+      backgroundColor: '#faf7f2',  
       borderRadius: 18,
       paddingBottom: 120,
     },
@@ -158,11 +154,11 @@ const style = StyleSheet.create({
       position: 'absolute',
       bottom: 32,
       right: 18,
-      backgroundColor: '#6f4e37', // Coffee brown
+      backgroundColor: '#6f4e37', 
       padding: 10,
       borderRadius: 28,
       borderWidth: 2.5,
-      borderColor: '#c19a6b', // Caramel border
+      borderColor: '#c19a6b', 
       alignItems: 'center',
       justifyContent: 'center',
       height: 50,
@@ -177,7 +173,7 @@ const style = StyleSheet.create({
   addCoffeText: {
     fontSize: 24,
     lineHeight: 24,
-    color: '#f5ebe0', // Cream text
+    color: '#f5ebe0', 
   },
 
 })

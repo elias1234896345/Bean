@@ -58,7 +58,7 @@ const mainpageStyle = StyleSheet.create({
     padding: 8,
     margin:8,
     gap: 12,
-    backgroundColor: '#faf7f2', // Light cream
+    backgroundColor: '#faf7f2', 
     borderRadius: 18,
   },
 
@@ -66,16 +66,16 @@ const mainpageStyle = StyleSheet.create({
     position: 'absolute',
     bottom: 32,
     right: 18,
-    borderColor: '#6f4e37', // Coffee brown
+    borderColor: '#6f4e37', 
     padding: 10,
     borderRadius: 28,
     borderWidth: 2.5,
-    backgroundColor: '#c19a6b', // Caramel border
+    backgroundColor: '#c19a6b', 
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
     width: 50,
-    shadowColor: '#6f4e37', // Coffee shadow
+    shadowColor: '#6f4e37',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -85,7 +85,7 @@ const mainpageStyle = StyleSheet.create({
   addCoffeText: {
     fontSize: 24,
     lineHeight: 24,
-    color: '#f5ebe0', // Cream text
+    color: '#f5ebe0', 
   },
 });
 

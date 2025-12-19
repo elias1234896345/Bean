@@ -8,30 +8,30 @@ const week = ['41','42','43','44','45','46']
 const coffiesweek = coffies.map((v,i) => ({
     value: v,
     label: week[i % week.length],
-    frontColor: '#6f4e37',  // Coffee brown - same color for all bars
+    frontColor: '#6f4e37',   
   })
 )
 
 const coffeeTypesData = [
   {
     stacks: [
-      { value: 2, color: '#c19a6b' },      // Caramel (Espresso)
-      { value: 1, color: '#6f4e37' },      // Coffee brown
+      { value: 2, color: '#c19a6b' },      
+      { value: 1, color: '#6f4e37' },     
     ],
     label: 'Mon',
   },
   {
     stacks: [
-      { value: 2, color: '#c19a6b' },      // Caramel (Espresso)
-      { value: 3, color: '#6f4e37' },      // Coffee brown
+      { value: 2, color: '#c19a6b' },      
+      { value: 3, color: '#6f4e37' },     
     ],
     label: 'Tue',
   },
   {
     stacks: [
-      { value: 1, color: '#c19a6b' },      // Caramel (Espresso)
-      { value: 2, color: '#6f4e37' },      // Coffee brown
-      { value: 2, color: '#8b7355' },      // Light brown (Macchiato)
+      { value: 1, color: '#c19a6b' },      
+      { value: 2, color: '#6f4e37' },     
+      { value: 2, color: '#8b7355' },      
     ],
     label: 'Wed',
   },
@@ -39,7 +39,7 @@ const coffeeTypesData = [
 
 export default function StatsPage(){
     return(
- // view for the lemets in the view TODO ADD STYLE 
+ 
     <ScrollView style={graphStyle.scrollViewSyle} >
 
         {/*coffies per week */}

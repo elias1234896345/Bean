@@ -26,36 +26,55 @@ export default function BeanInfoModal({visiable, bean, onClose}: Prop){
               {/* inner touchable prevents outside press from propagating when tapping content */}
               <TouchableWithoutFeedback onPress={() => {}}>
                 <View style={styles.card}>
-                    <TouchableOpacity style={{ position: 'absolute', top: 8, right: 8, backgroundColor: '#fff', borderRadius: 16, padding: 4, elevation: 3,}}
-                       onPress={onClose} hitSlop={{top:8,left:8,right:8,bottom:8}}>
+                    <TouchableOpacity 
+                       style={{ 
+                         position: 'absolute', 
+                         top: 8, 
+                         right: 8, 
+                         backgroundColor: '#fff', 
+                         borderRadius: 16, 
+                         padding: 4, 
+                         elevation: 3,
+                       }}
+                       onPress={onClose} 
+                       hitSlop={{top:8,left:8,right:8,bottom:8}}
+                    >
                         <Ionicons name="close" size={20} color="#333" />
                     </TouchableOpacity>
-                    {/* Coffe image */}
+                    {/* Coffee image */}
                       <Image
                         source={require('@/assets/images/bag.png')}
-                        style={{ width:'24%', height:'90%', borderRadius:12, alignSelf:'center', marginLeft:6 }}
+                        style={{ 
+                          width:'24%', 
+                          height:'90%', 
+                          borderRadius:12, 
+                          alignSelf:'center', 
+                          marginLeft:6,
+                          borderWidth: 1,
+                          borderColor: '#c19a6b',
+                        }}
                       />
-                    {/* Name, palce, roastery, land, kgPrice */}
+                    {/* Name, place, roastery, land, kgPrice */}
                     <View style={{ marginLeft:22, justifyContent:'space-evenly',flexDirection: 'column', width: '40%' }} >
                       <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
-                        <MaterialCommunityIcons name="coffee" size={13} />
-                         <Text numberOfLines={1} style={{marginLeft:6}}>{bean.name}</Text>
+                        <MaterialCommunityIcons name="coffee" size={13} color="#6f4e37" />
+                         <Text numberOfLines={1} style={{marginLeft:6, color: '#6f4e37', fontWeight: '600'}}>{bean.name}</Text>
                      </View>
                     
                       <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
-                        <MaterialCommunityIcons name="factory" size={13} />
-                        <Text numberOfLines={1}  style={{marginLeft:6}}>{bean.roastery}</Text>
+                        <MaterialCommunityIcons name="factory" size={13} color="#8b7355" />
+                        <Text numberOfLines={1} style={{marginLeft:6, color: '#8b7355'}}>{bean.roastery}</Text>
                       </View>
                     </View>
 
                     <View style={{  justifyContent:'space-evenly',flexDirection: 'column',width: '35%' }} >
                       <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
-                          <MaterialIcons name="attach-money" size={13} />
-                        <Text numberOfLines={1}  style={{marginLeft:6}}>{bean.kgPrice}</Text>
+                          <MaterialIcons name="attach-money" size={13} color="#c19a6b" />
+                        <Text numberOfLines={1} style={{marginLeft:6, color: '#6f4e37', fontWeight: '600'}}>{bean.kgPrice}</Text>
                       </View>
                       <View style={{ alignItems: 'center', gap: 6, justifyContent:'flex-start', flexDirection: 'row'}}>
-                        <Ionicons name="location-outline" size={13} />
-                        <Text numberOfLines={1}  style={{marginLeft:6}}>{bean.land}</Text>
+                        <Ionicons name="location-outline" size={13} color="#8b7355" />
+                        <Text numberOfLines={1} style={{marginLeft:6, color: '#8b7355'}}>{bean.land}</Text>
                       </View>
                     </View>
                 </View>
@@ -77,9 +96,15 @@ const styles = StyleSheet.create({
     height: 180,
     width: '100%',
     borderRadius: 22,
-    borderWidth: 3,
+    borderWidth: 1.5,
+    borderColor: '#c19a6b',
     flexDirection: 'row',
-    backgroundColor: '#f5e1cf',
+    backgroundColor: '#ecdfd0',
     padding: 10,
+    shadowColor: '#6f4e37',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 });

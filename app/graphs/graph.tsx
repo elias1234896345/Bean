@@ -9,8 +9,8 @@ const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
  const coffiesDays = coffies.map((v,i) => ({
     value: v,
     label: days[i % days.length],
-    dataPointColor: '#6f4e37', // Coffee brown dots
-    color: '#6f4e37', // Coffee brown line
+    dataPointColor: '#6f4e37',  
+    color: '#6f4e37',  
   })
 )
 
@@ -26,14 +26,13 @@ export default function GraphMP(){
                   spacing={45}
                   initialSpacing={24}
                   xAxisLength={324}
-                  color="#6f4e37" // Coffee brown line
-                  dataPointsColor="#6f4e37" // Coffee brown dots
+                  color="#6f4e37"  
+                  dataPointsColor="#6f4e37"  
                   thickness={3}
                   curved
                   areaChart
-                  startFillColor="#c19a6b" // Caramel gradient start
-                  endFillColor="#ecdfd0" // Light cream gradient end
-                  startOpacity={0.4}
+                  startFillColor="#c19a6b" 
+                  endFillColor="#ecdfd0" 
                   endOpacity={0.1}
                   />
               </View>
@@ -44,13 +43,13 @@ export default function GraphMP(){
 const graphStyle = StyleSheet.create({
   container:{
     height: 286,
-    backgroundColor: '#ecdfd0', // Card background
+    backgroundColor: '#ecdfd0',
     borderRadius: mainPageBorderRadius,
     alignItems: 'center',
     overflow: 'hidden',
     borderWidth: 1.5,
-    borderColor: '#c19a6b', // Caramel border
-    shadowColor: '#6f4e37', // Coffee shadow
+    borderColor: '#c19a6b',
+    shadowColor: '#6f4e37',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -65,6 +64,6 @@ const graphStyle = StyleSheet.create({
     paddingVertical: 8,
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#6f4e37', // Coffee brown
+    color: '#6f4e37',
   },
 })

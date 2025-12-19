@@ -19,7 +19,7 @@ export default function BeanList({beanList, onAdd}: Props ){
 
     return(
      <View style={style.beanlist}>
-       <Text style={style.mainPageTextStyle}> BeanList </Text>
+       <Text style={style.mainPageTextStyle}> Bean List </Text>
 
       <View style={style.alignmentStyle}>
          <FlatList
@@ -88,6 +88,7 @@ export default function BeanList({beanList, onAdd}: Props ){
              width: '80%',
              justifyContent: 'center',
              alignItems: 'center',
+             borderColor: '#6f4e37',
            }}
         >
           <Text> View full bean list </Text>
@@ -102,26 +103,27 @@ const style = StyleSheet.create({
     minHeight: 200,
     maxHeight: 420,
     alignContent: "center",
-    backgroundColor: '#ecdfd0', // Card background
+    backgroundColor: '#ecdfd0', 
     borderRadius: 22,
     overflow: 'hidden',
     justifyContent: 'flex-start',
     marginBottom: 20,
     borderWidth: 1.5,
-    borderColor: '#c19a6b', // Caramel border
-    shadowColor: '#6f4e37', // Coffee shadow
+    borderColor: '#c19a6b', 
+    shadowColor: '#6f4e37',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+    
   },
 
   mainPageTextStyle:{
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     alignItems: 'center',
-    color: '#6f4e37', // Coffee brown text
+    color: '#6f4e37', 
     paddingTop: 8,
   },
 
@@ -134,7 +136,7 @@ const style = StyleSheet.create({
 
   beanListDispaly:{
     borderRadius: 60,
-    borderColor: '#6f4e37', // Coffee brown border
+    borderColor: '#6f4e37',  
     borderWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
@@ -155,21 +157,21 @@ const styles = StyleSheet.create({
   itemBox: {
     borderRadius: 60,
     borderWidth: 2,
-    borderColor: '#6f4e37', // Coffee brown border
+    borderColor: '#6f4e37',
     paddingVertical: 10,
     paddingHorizontal: 12,
     marginRight: 10,
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   btn: {
-    borderColor: '#6f4e37', // Coffee brown
+    backgroundColor: '#6f4e37',
     borderRadius: 22,
     borderWidth: 2.5,
-    backgroundColor: '#c19a6b', // Caramel border
+    borderColor: '#c19a6b',
     width: 40,
     height: 40,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-})
+});

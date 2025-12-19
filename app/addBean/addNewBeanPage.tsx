@@ -272,7 +272,7 @@ const camera = StyleSheet.create({
     palceholderText:{
         marginTop: 4,
         fontSize: 12.5,
-        // fontWeight: 'bold'
+        fontWeight: 'bold'
     },
 
 })

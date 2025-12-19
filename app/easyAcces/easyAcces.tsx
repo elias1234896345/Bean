@@ -30,12 +30,12 @@ const style = StyleSheet.create({
   container:{
     height: 80,
     alignContent: "center",
-    backgroundColor: '#ecdfd0', // Card background
+    backgroundColor: '#ecdfd0', 
     borderRadius: mainPageBorderRadius,
     overflow: 'hidden',
     borderWidth: 1.5,
-    borderColor: '#c19a6b', // Caramel border
-    shadowColor: '#6f4e37', // Coffee shadow
+    borderColor: '#c19a6b', 
+    shadowColor: '#6f4e37',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -51,10 +51,10 @@ const style = StyleSheet.create({
 
   mainPageTextStyle:{
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 17,
     fontWeight: 'bold',
     alignItems: 'center',
-    color: '#6f4e37', // Coffee brown text
+    color: '#6f4e37', 
   },
 
   textSyle:{
@@ -65,10 +65,10 @@ const style = StyleSheet.create({
 
 const buttenStyles = StyleSheet.create({
   btn: {
-    borderColor: '#6f4e37', // Coffee brown
+    borderColor: '#6f4e37', 
     borderRadius: 22,
     borderWidth: 2.5,
-    backgroundColor: '#c19a6b', // Caramel border
+    backgroundColor: '#c19a6b', 
     width: 40,
     height: 40,
     alignItems: 'center',
