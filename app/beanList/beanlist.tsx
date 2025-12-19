@@ -148,7 +148,7 @@ const style = StyleSheet.create({
 
 const styles = StyleSheet.create({
   row: {
-    width: "96%",
+    width: "94%",
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 8,
@@ -160,18 +160,19 @@ const styles = StyleSheet.create({
     borderColor: '#6f4e37',
     paddingVertical: 10,
     paddingHorizontal: 12,
-    marginRight: 10,
+    marginRight: 6,
     flexDirection: 'row',
     justifyContent: 'center',
   },
   btn: {
-    backgroundColor: '#6f4e37',
+    borderColor: '#6f4e37',
     borderRadius: 22,
     borderWidth: 2.5,
-    borderColor: '#c19a6b',
+    backgroundColor: '#c19a6b',
     width: 40,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 90,
   },
 });

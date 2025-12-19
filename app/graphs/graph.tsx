@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { LineChart } from "react-native-gifted-charts";
-import { mainPageBorderRadius, screenWidth } from '../../constants/defultValus';
+import { mainPageBorderRadius } from '../../constants/defultValus';
 
+const screenWidth = Dimensions.get('window').width;
 
-  // later tke vlaues from json
+// later tke vlaues from json
 const coffies = [1,2,3,4,5,6,7]
 const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
- const coffiesDays = coffies.map((v,i) => ({
+const coffiesDays = coffies.map((v,i) => ({
     value: v,
     label: days[i % days.length],
     dataPointColor: '#6f4e37',  
@@ -21,11 +22,10 @@ export default function GraphMP(){
               <View style= {graphStyle.graphDisaplyArea}>
                   <LineChart 
                   data={coffiesDays}
-                  width={screenWidth}
+                  width={screenWidth - 60}
                   height={200}
-                  spacing={45}
-                  initialSpacing={24}
-                  xAxisLength={324}
+                  spacing={(screenWidth - 100) / 7} 
+                  initialSpacing={10}
                   color="#6f4e37"  
                   dataPointsColor="#6f4e37"  
                   thickness={3}
@@ -33,7 +33,11 @@ export default function GraphMP(){
                   areaChart
                   startFillColor="#c19a6b" 
                   endFillColor="#ecdfd0" 
+                  startOpacity={0.4}
                   endOpacity={0.1}
+                  hideRules
+                  yAxisTextStyle={{color: '#8b7355'}}
+                  xAxisLabelTextStyle={{color: '#8b7355', fontSize: 10}}
                   />
               </View>
             </View>
