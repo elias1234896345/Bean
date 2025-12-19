@@ -2,12 +2,12 @@ import { beanList, COFFEE_COLORS } from "@/constants/defultValus";
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
 import * as ImagePicker from 'expo-image-picker';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import React, { useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Divider from '../../constants/divider';
 
-const Bean = { src: require("../assets/images/bag.png") };
+const Bean = { src: require("@/assets/images/bag.png") };
 const Serveringsstilar = ["Espresso", "Americano", "Cappuccino", "Latte", "Cold Brew", "Pour Over"];
 const Places = ["Hemma", "Café"];
 
@@ -184,7 +184,7 @@ export default function AddNewBeanPage(){
              <View style={{borderWidth: 2, borderRadius: 12,  backgroundColor:'green', height: 60, justifyContent: 'center'}}>
                  <TouchableOpacity
                  style={{justifyContent:'center', alignItems:'center'}}
-                 onPress={() => [null]}
+                 onPress={() => router.push("/")}
                  >
                      <Text style={{ padding: 14, color: 'white'}}> CHECK-IN</Text>
                  </TouchableOpacity>

@@ -1,7 +1,7 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
-import AccountViewMP from "./mainpage/account";
+import AccountViewMP from "@/app/account/accounts";
 import { COFFEE_COLORS } from "@/constants/defultValus";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 
 export default function AccountPage(){

@@ -1,6 +1,5 @@
 import React from "react";
-import { Text, View, Image, StyleSheet } from "react-native";
-import { COFFEE_COLORS } from "@/constants/defultValus";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function AccountViewMP() {
   return (
@@ -28,14 +27,20 @@ export default function AccountViewMP() {
   );
 }
 
-
 const style = StyleSheet.create({
   container: {
     height: 150,
     flexDirection: "row",
-    backgroundColor: COFFEE_COLORS.honeyBrown,
+    backgroundColor: "#ecdfd0", // Card background
     borderRadius: 22,
     overflow: "hidden",
+    borderWidth: 1.5,
+    borderColor: "#c19a6b", // Caramel border
+    shadowColor: "#6f4e37", // Coffee shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 
   accountView: {
@@ -47,7 +52,7 @@ const style = StyleSheet.create({
 
   accountViewPicture: {
     borderRadius: 60,
-    borderColor: "black",
+    borderColor: "#6f4e37", // Coffee brown border
     borderWidth: 2,
     height: 110,
     width: 110,
@@ -57,6 +62,7 @@ const style = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     fontWeight: "bold",
+    color: "#6f4e37", // Coffee brown text
   },
 
   accountSideText: {
@@ -64,5 +70,6 @@ const style = StyleSheet.create({
     padding: 4,
     fontSize: 16,
     fontWeight: "bold",
+    color: "#6f4e37", // Coffee brown text
   },
 });

@@ -33,14 +33,14 @@ export default function FindBeanPage(){
                  keyExtractor={(item) => item.id}
                  renderItem={({ item: bean }) => (   
                     <TouchableOpacity
-                    onPress={() => router.push({ pathname: '../addNewBeanPage', params: { id: bean.id } })}
+                    onPress={() => router.push({ pathname: '../addBean/addNewBeanPage', params: { id: bean.id } })}
                     >
                    <View 
                     style={{height:76, width: '100%', borderRadius: 22, borderWidth:3, flexDirection: 'row'}}
                     >
                         {/* Coffe image */}
                           <Image
-                            source={require("../assets/images/bag.png")}
+                            source={require("@/assets/images/bag.png")}
                             style={{ width:'24%', height:'90%', borderRadius:12, alignSelf:'center',marginLeft:6 }}
                           />
                         {/* Name, palce, roastery, land, kgPrice */}

@@ -70,10 +70,24 @@ export const COFFEE_COLORS = {
   nr4:           '#e5a56cff' ,
 };
 
+// Main color palette - your three signature colors
+export const APP_COLORS = {
+  caramel: '#c19a6b',       // Light coffee/caramel
+  coffee: '#6f4e37',        // Rich coffee brown
+  lightBrown: '#8b7355',    // Medium brown
+  
+  // Derived colors for backgrounds
+  cream: '#f5ebe0',
+  lightCream: '#faf7f2',
+  cardBg: '#ecdfd0',
+  border: '#d4c4b0',
+};
+
 
 export default {
   mainPageBorderRadius,
   screenWidth,
   COLORS,
   COFFEE_COLORS,
+  APP_COLORS,
 };

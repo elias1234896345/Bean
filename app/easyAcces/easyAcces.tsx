@@ -1,5 +1,5 @@
-import { Text, View, StyleSheet, Pressable, } from "react-native";
-import { COFFEE_COLORS, mainPageBorderRadius } from "@/constants/defultValus";
+import { mainPageBorderRadius } from "@/constants/defultValus";
+import { Pressable, StyleSheet, Text, View, } from "react-native";
 
 
 export default function EasyAcces(){
@@ -13,7 +13,7 @@ export default function EasyAcces(){
         onPress={()=> null}
         style={buttenStyles.btn}
         >
-          <Text>
+          <Text style={{color: '#4f3828ff', fontSize:16}}>
             +
           </Text>
         </Pressable>
@@ -29,10 +29,17 @@ const style = StyleSheet.create({
 
   container:{
     height: 80,
-    alignContent:  "center",
-    backgroundColor: COFFEE_COLORS.nr3,
+    alignContent: "center",
+    backgroundColor: '#ecdfd0', // Card background
     borderRadius: mainPageBorderRadius,
-    overflow: 'hidden',     
+    overflow: 'hidden',
+    borderWidth: 1.5,
+    borderColor: '#c19a6b', // Caramel border
+    shadowColor: '#6f4e37', // Coffee shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 
   alignmentStyle:{
@@ -40,14 +47,14 @@ const style = StyleSheet.create({
     justifyContent: 'space-around',
     flexDirection: 'row',
     flex: 0.7,
-    
   },
+
   mainPageTextStyle:{
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
     alignItems: 'center',
-
+    color: '#6f4e37', // Coffee brown text
   },
 
   textSyle:{
@@ -57,10 +64,11 @@ const style = StyleSheet.create({
 })
 
 const buttenStyles = StyleSheet.create({
- btn: {
-    backgroundColor: "#e0dfe8",
+  btn: {
+    borderColor: '#6f4e37', // Coffee brown
     borderRadius: 22,
     borderWidth: 2.5,
+    backgroundColor: '#c19a6b', // Caramel border
     width: 40,
     height: 40,
     alignItems: 'center',

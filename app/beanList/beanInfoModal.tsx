@@ -32,7 +32,7 @@ export default function BeanInfoModal({visiable, bean, onClose}: Prop){
                     </TouchableOpacity>
                     {/* Coffe image */}
                       <Image
-                        source={require('../../assets/images/bag.png')}
+                        source={require('@/assets/images/bag.png')}
                         style={{ width:'24%', height:'90%', borderRadius:12, alignSelf:'center', marginLeft:6 }}
                       />
                     {/* Name, palce, roastery, land, kgPrice */}

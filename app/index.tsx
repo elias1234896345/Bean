@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useEffect } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { beanList, COFFEE_COLORS } from "../constants/defultValus";
-import AccountViewMP from "./account/account";
+import AccountViewMP from "./account/accounts";
 import BeanList from "./beanList/beanlist";
 import EasyAcces from "./easyAcces/easyAcces";
 import GrapMP from "./graphs/graph";
@@ -19,12 +19,12 @@ export default function MainPage() {
         contentContainerStyle = {mainpageStyle.mainPage}>
 
         {/* show the account view at the top */}
-        <TouchableOpacity onPress={()=> router.push('./accountPage')}>
+        <TouchableOpacity onPress={()=> router.push('../account/accountPage')}>
             <AccountViewMP />
         </TouchableOpacity>
         
         {/* Graph */}
-        <Pressable onPress={() => router.push('../statsPage')}> 
+        <Pressable onPress={() => router.push('../graphs/statsPage')}> 
          <GrapMP />
         </Pressable>
 
@@ -41,7 +41,7 @@ export default function MainPage() {
         />
       </ScrollView>
       <TouchableOpacity
-        onPress={() => router.push('../findBeanPage')}
+        onPress={() => router.push('../addBean/findBeanPage')}
         style={ mainpageStyle.addCoffe}
         accessibilityLabel="Add latest coffee"
       >
@@ -58,7 +58,7 @@ const mainpageStyle = StyleSheet.create({
     padding: 8,
     margin:8,
     gap: 12,
-    backgroundColor: COFFEE_COLORS.milk,
+    backgroundColor: '#faf7f2', // Light cream
     borderRadius: 18,
   },
 
@@ -66,20 +66,27 @@ const mainpageStyle = StyleSheet.create({
     position: 'absolute',
     bottom: 32,
     right: 18,
-    backgroundColor: COFFEE_COLORS.milk,
+    borderColor: '#6f4e37', // Coffee brown
     padding: 10,
     borderRadius: 28,
     borderWidth: 2.5,
+    backgroundColor: '#c19a6b', // Caramel border
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
     width: 50,
+    shadowColor: '#6f4e37', // Coffee shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
   },
 
   addCoffeText: {
     fontSize: 24,
     lineHeight: 24,
-    color: COFFEE_COLORS.espresso,
+    color: '#f5ebe0', // Cream text
   },
 });
+
 

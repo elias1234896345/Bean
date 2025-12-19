@@ -1,5 +1,4 @@
 import type { BeanInfo } from "@/constants/defultValus";
-import { COFFEE_COLORS } from "@/constants/defultValus";
 import { FontAwesome6, MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from "expo-router";
 import { Bean as BeanIcon } from 'lucide-react-native';
@@ -65,7 +64,7 @@ export default function BeanList({beanList, onAdd}: Props ){
                 onPress={() => item.id && onAdd?.(item.id)}
                 style={styles.btn}
               >
-                <Text>+</Text>
+                 <Text style={{color: '#4f3828ff', fontSize:16}}>+</Text>
               </TouchableOpacity>
             </View>
           
@@ -81,7 +80,7 @@ export default function BeanList({beanList, onAdd}: Props ){
       </View>
       <View style={{alignItems: 'center', height:40}}>    
         <TouchableOpacity
-           onPress={()=> router.push('/beanListpage')}
+           onPress={()=> router.push('../beanList/beanListpage')}
           style={{
              borderRadius: 12,
              borderWidth: 2,
@@ -98,54 +97,32 @@ export default function BeanList({beanList, onAdd}: Props ){
     );
 }
 
-const styles = StyleSheet.create({
-  row: {
-    width: "96%",
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: 8,
-    paddingHorizontal: 8,
-  },
-  itemBox: {
-    borderRadius: 60,
-    borderWidth: 2,
-    borderColor: "black",
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    marginRight: 10,
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
- btn: {
-    backgroundColor: "#e0dfe8",
-    borderRadius: 22,
-    borderWidth: 2.5,
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-})
-
 const style = StyleSheet.create({
-
-beanlist:{
+  beanlist:{
     minHeight: 200,
     maxHeight: 420,
-    alignContent:  "center",
-    backgroundColor: COFFEE_COLORS.nr4,
+    alignContent: "center",
+    backgroundColor: '#ecdfd0', // Card background
     borderRadius: 22,
     overflow: 'hidden',
     justifyContent: 'flex-start',
     marginBottom: 20,
-  },    
+    borderWidth: 1.5,
+    borderColor: '#c19a6b', // Caramel border
+    shadowColor: '#6f4e37', // Coffee shadow
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
 
-mainPageTextStyle:{
+  mainPageTextStyle:{
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
     alignItems: 'center',
-
+    color: '#6f4e37', // Coffee brown text
+    paddingTop: 8,
   },
 
   alignmentStyle:{
@@ -157,15 +134,42 @@ mainPageTextStyle:{
 
   beanListDispaly:{
     borderRadius: 60,
-    borderColor: 'black',
+    borderColor: '#6f4e37', // Coffee brown border
     borderWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
 
   beanListTextStyle:{
-
   }
+})
 
+const styles = StyleSheet.create({
+  row: {
+    width: "96%",
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 8,
+    paddingHorizontal: 8,
+  },
+  itemBox: {
+    borderRadius: 60,
+    borderWidth: 2,
+    borderColor: '#6f4e37', // Coffee brown border
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginRight: 10,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  btn: {
+    borderColor: '#6f4e37', // Coffee brown
+    borderRadius: 22,
+    borderWidth: 2.5,
+    backgroundColor: '#c19a6b', // Caramel border
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
 })

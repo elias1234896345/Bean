@@ -8,29 +8,30 @@ const week = ['41','42','43','44','45','46']
 const coffiesweek = coffies.map((v,i) => ({
     value: v,
     label: week[i % week.length],
+    frontColor: '#6f4e37',  // Coffee brown - same color for all bars
   })
 )
 
 const coffeeTypesData = [
   {
     stacks: [
-      { value: 2, color: 'orange' },      // 2 espressos
-      { value: 1, color: 'brown' },       // 1 normal coffee
+      { value: 2, color: '#c19a6b' },      // Caramel (Espresso)
+      { value: 1, color: '#6f4e37' },      // Coffee brown
     ],
     label: 'Mon',
   },
   {
     stacks: [
-      { value: 2, color: 'orange' },      // 2 espressos
-      { value: 3, color: 'brown' },       // 3 coffees
+      { value: 2, color: '#c19a6b' },      // Caramel (Espresso)
+      { value: 3, color: '#6f4e37' },      // Coffee brown
     ],
     label: 'Tue',
   },
   {
     stacks: [
-      { value: 1, color: 'orange' },      // 1 espresso
-      { value: 2, color: 'brown' },       // 2 coffees
-      { value: 2, color: 'blue' },        // 2 macchiatos
+      { value: 1, color: '#c19a6b' },      // Caramel (Espresso)
+      { value: 2, color: '#6f4e37' },      // Coffee brown
+      { value: 2, color: '#8b7355' },      // Light brown (Macchiato)
     ],
     label: 'Wed',
   },
@@ -68,15 +69,15 @@ export default function StatsPage(){
   {/* Legend */}
   <View style={graphStyle.legendContainer}>
     <View style={graphStyle.legendItem}>
-      <View style={[graphStyle.legendColor, { backgroundColor: 'orange' }]} />
+      <View style={[graphStyle.legendColor, { backgroundColor: '#c19a6b' }]} />
       <Text style={graphStyle.legendText}>Espresso</Text>
     </View>
     <View style={graphStyle.legendItem}>
-      <View style={[graphStyle.legendColor, { backgroundColor: 'brown' }]} />
+      <View style={[graphStyle.legendColor, { backgroundColor: '#6f4e37' }]} />
       <Text style={graphStyle.legendText}>Coffee</Text>
     </View>
     <View style={graphStyle.legendItem}>
-      <View style={[graphStyle.legendColor, { backgroundColor: 'blue' }]} />
+      <View style={[graphStyle.legendColor, { backgroundColor: '#8b7355' }]} />
       <Text style={graphStyle.legendText}>Macchiato</Text>
     </View>
   </View>
@@ -107,6 +108,7 @@ export default function StatsPage(){
                   spacing={45}
                   initialSpacing={24}
                   xAxisLength={324} 
+                  color={'#6f4e37'}
                   />
               </View>
             </View>
@@ -119,12 +121,15 @@ const graphStyle = StyleSheet.create({
     flexGrow: 1,
     margin: 8,
     gap: 12,
+    backgroundColor: '#faf7f2',
+    
   },
 
   headerGraphText:{
-    paddingTop:4,
-    fontSize: 16,
+    paddingTop: 8,
+    fontSize: 18,
     fontWeight: 'bold',
+    color: '#3e2723',
   },
 
   legendContainer: {
@@ -149,15 +154,24 @@ const graphStyle = StyleSheet.create({
   legendText: {
     fontSize: 12,
     fontWeight: '500',
+    color: '#4a3428',
   },
 
   container:{
     height: 294, 
-    backgroundColor: 'rgba(105, 131, 246, 0.6)',
+    backgroundColor: '#ecdfd0',
     borderRadius: mainPageBorderRadius,
     alignItems: 'center',
     overflow: 'hidden',
-    margin: 10,   
+    margin: 10,
+    borderWidth: 1.5,
+    borderColor: '#d4c4b0',
+    shadowColor: '#3e2723',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+
   },
   graphDisplayArea: {
     width: '100%',
@@ -166,11 +180,12 @@ const graphStyle = StyleSheet.create({
     alignContent: 'center',
     alignItems:'center',
     paddingBottom:20,
+    
   },
 
     graphDisplayAreaTypes: {
     width: '100%',
-    height: '100%',
+    height: '94%',
     justifyContent: 'center',
     alignContent: 'center',
     alignItems:'center',
@@ -178,16 +193,3 @@ const graphStyle = StyleSheet.create({
   }
 })
 
-
-
-const buttenStyles = StyleSheet.create({
- btn: {
-    backgroundColor: "#e0dfe8",
-    borderRadius: 22,
-    borderWidth: 2.5,
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-})
