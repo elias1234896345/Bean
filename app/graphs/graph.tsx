@@ -22,9 +22,9 @@ export default function GraphMP(){
               <View style= {graphStyle.graphDisaplyArea}>
                   <LineChart 
                   data={coffiesDays}
-                  width={screenWidth - 60}
+                  width={screenWidth - 20}
                   height={200}
-                  spacing={(screenWidth - 100) / 7} 
+                  spacing={(screenWidth - 60) / 7} 
                   initialSpacing={10}
                   color="#6f4e37"  
                   dataPointsColor="#6f4e37"  
